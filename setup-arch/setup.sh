@@ -1,5 +1,8 @@
 #!/bin/bash
 
+# saves current directory
+current_directory=$PWD
+
 # update default packages
 sudo pacman --noconfirm -Syyuu
 
@@ -20,4 +23,16 @@ chsh -s /usr/bin/zsh
 # install https://github.com/zsh-users/zsh-autosuggestions
 mkdir ~/.zsh
 git clone https://github.com/zsh-users/zsh-autosuggestions ~/.zsh/zsh-autosuggestions
-echo 'source ~/.zsh/zsh-autosuggestions/zsh-autosuggestions.zsh'
+echo 'source ~/.zsh/zsh-autosuggestions/zsh-autosuggestions.zsh' >> ~/.zshrc
+echo 'HISTFILE=~/.zsh_history' >> ~/.zshrc
+echo 'HISTSIZE=10000' >> ~/.zshrc
+echo 'SAVEHIST=10000' >> ~/.zshrc
+echo 'setopt appendhistory' >> ~/.zshrc
+
+# install rust plugins
+cargo install bat exa
+
+# copy config files and alias
+cp $current_directory/config.lua ~/.config/lvim/
+cp $current_directory/.p10k.zsh ~/
+cat $current_directory/alias.sh >> ~/.zshrc
