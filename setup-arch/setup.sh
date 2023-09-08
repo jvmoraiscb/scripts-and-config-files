@@ -4,17 +4,17 @@
 current_directory=$PWD
 
 # update default packages
+sudo -v
 sudo pacman --noconfirm -Syyuu
 
 # install https://github.com/Jguer/yay
+sudo -v
 sudo pacman --noconfirm -S git base-devel
 cd /tmp && git clone https://aur.archlinux.org/yay.git && cd yay && makepkg -si --noconfirm
 
-# install zsh
-yay --noconfirm -S zsh
-chsh -s /usr/bin/zsh
 
 # install https://github.com/LunarVim/LunarVim
+sudo -v
 yay --noconfirm -S neovim python python-pip python-pynvim nodejs npm yarn cargo
 yarn global add neovim tree-sitter-cli
 cargo install fd-find ripgrep
@@ -22,10 +22,12 @@ bash <(curl -s https://raw.githubusercontent.com/LunarVim/LunarVim/release-1.3/n
 echo 'export PATH=$HOME/.local/bin:$HOME/.cargo/bin:$PATH' >> ~/.zshrc
 
 # install https://github.com/romkatv/powerlevel10k
-yay --noconfirm -S zsh-theme-powerlevel10k-git tft-meslo-nerd-font-powerlevel10k powerline-fonts awesone-terminal-fonts
+sudo -v
+yay --noconfirm -S zsh zsh-theme-powerlevel10k-git tft-meslo-nerd-font-powerlevel10k powerline-fonts awesone-terminal-fonts
 echo 'source /usr/share/zsh-theme-powerlevel10k/powerlevel10k.zsh-theme' >> ~/.zshrc
 
 # install https://github.com/zsh-users/zsh-autosuggestions
+sudo -v
 mkdir ~/.zsh
 git clone https://github.com/zsh-users/zsh-autosuggestions ~/.zsh/zsh-autosuggestions
 echo 'source ~/.zsh/zsh-autosuggestions/zsh-autosuggestions.zsh' >> ~/.zshrc
@@ -35,9 +37,15 @@ echo 'SAVEHIST=10000' >> ~/.zshrc
 echo 'setopt appendhistory' >> ~/.zshrc
 
 # install https://github.com/sharkdp/bat and https://github.com/ogham/exa
+sudo -v
 cargo install bat exa
 
 # copy config files and alias
 cp $current_directory/lvim.config.lua ~/.config/lvim/config.lua
 cp $current_directory/p10k.config.sh ~/.p10k.zsh
 cat $current_directory/alias.config.sh >> ~/.zshrc
+
+# change default shell to zsh for current user
+sudo -v
+chsh -s /usr/bin/zsh
+
