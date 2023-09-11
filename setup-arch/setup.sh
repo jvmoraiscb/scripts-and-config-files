@@ -23,7 +23,7 @@ echo 'export PATH=$HOME/.local/bin:$HOME/.cargo/bin:$PATH' >> ~/.zshrc
 
 # install https://github.com/romkatv/powerlevel10k
 sudo -v
-yay --noconfirm -S zsh zsh-theme-powerlevel10k-git tft-meslo-nerd-font-powerlevel10k powerline-fonts awesone-terminal-fonts
+yay --noconfirm -S zsh zsh-theme-powerlevel10k-git ttf-meslo-nerd-font-powerlevel10k powerline-fonts awesome-terminal-fonts
 echo 'source /usr/share/zsh-theme-powerlevel10k/powerlevel10k.zsh-theme' >> ~/.zshrc
 echo '[[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh' >> ~/.zshrc
 
