@@ -25,6 +25,7 @@ echo 'export PATH=$HOME/.local/bin:$HOME/.cargo/bin:$PATH' >> ~/.zshrc
 sudo -v
 yay --noconfirm -S zsh zsh-theme-powerlevel10k-git tft-meslo-nerd-font-powerlevel10k powerline-fonts awesone-terminal-fonts
 echo 'source /usr/share/zsh-theme-powerlevel10k/powerlevel10k.zsh-theme' >> ~/.zshrc
+echo '[[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh' >> ~/.zshrc
 
 # install https://github.com/zsh-users/zsh-autosuggestions
 sudo -v
