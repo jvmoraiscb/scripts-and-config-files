@@ -49,4 +49,3 @@ cat $current_directory/alias.config.sh >> ~/.zshrc
 # change default shell to zsh for current user
 sudo -v
 chsh -s /usr/bin/zsh
-
